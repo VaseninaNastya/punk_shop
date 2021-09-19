@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import rootReduser from './reducers';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware,  } from 'redux';
+import {logger} from 'redux-logger';
+//const store = new createStore(rootReduser, applyMiddleware(logger));
+const store = createStore(rootReduser);
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
