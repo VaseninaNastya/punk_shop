@@ -10,7 +10,7 @@ import axios from "axios";
 import ProductsAPI from "../../servises/punkAPI";
 
 const CardHolder = () => {
-  const products = useSelector((state) => state);
+  const products = useSelector((state) => state.cardList.products);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
@@ -25,8 +25,17 @@ const CardHolder = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
-  console.log("products", products);
-  return <Card />;
+  console.log("products111", products);
+  return (
+    <div className={s.cardHolder_container}>{
+
+        products.map(({  id, name, tagline })=>{
+            return     <Card id = {id} name = {name} tagline = {tagline}/>;
+        })
+    }</div>
+
+  )
+
 };
 
 export default CardHolder;
