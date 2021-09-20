@@ -1,5 +1,7 @@
 //import { FETCH_CARD_LIST, FETCH_CARD_LIST_REJECT, FETCH_CARD_LIST_RESOLVE } from "./actionTypes";
 import { FETCH_CARD_LIST } from "./actionTypes";
+
+
 export const cardListAction = (products) =>({
     type: FETCH_CARD_LIST,
     payload: products
