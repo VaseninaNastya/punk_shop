@@ -1,0 +1,5 @@
+@import "../../index.scss";
+.cardHolder_container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
