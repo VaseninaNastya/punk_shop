@@ -1,12 +1,15 @@
 import React from 'react';
 import s from './Card.module.scss'
 import cl from "classnames";
-
+import { addCardProductAction } from "../../actions/cardProductAction";
+import { useDispatch, useSelector } from "react-redux";
 const Card = (props) => {
+    const productsInCard = useSelector((state) => state.cardProduct);
+    const dispatch = useDispatch();
     const {id, name, tagline, description, image_url, first_brewed, volume, abv} = props
     
     const addCard = function(){
-        console.log('id', id)
+      dispatch(addCardProductAction(id))
     }
     return (
         <div data_id = {id} className = {s.productCard}>
