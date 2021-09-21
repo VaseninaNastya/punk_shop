@@ -27,15 +27,23 @@ const CardHolder = () => {
   }, []);
   console.log("products111", products);
   return (
-    <div className={s.cardHolder_container}>{
-
-        products.map(({  id, name, tagline })=>{
-            return     <Card id = {id} name = {name} tagline = {tagline}/>;
-        })
-    }</div>
-
-  )
-
+    <div className={s.cardHolder_container}>
+      {products.map(
+        ({
+          id,
+          name,
+          tagline,
+          description,
+          image_url,
+          first_brewed,
+          volume,
+          abv
+        }) => {
+          return <Card id={id} name={name} tagline={tagline} description={description} image_url={image_url} first_brewed = {first_brewed} volume={volume} abv={abv}/>;
+        }
+      )}
+    </div>
+  );
 };
 
 export default CardHolder;
