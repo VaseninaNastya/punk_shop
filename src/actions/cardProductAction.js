@@ -16,7 +16,6 @@ export const removeCardProductAction = (id) =>{
 
 export const getCardProductsAction = () =>{
   return {
-      type: GET_CARD_PRODUCT,
-      payload : {}
+      type: GET_CARD_PRODUCT
   }
 }

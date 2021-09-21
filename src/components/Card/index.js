@@ -4,7 +4,8 @@ import cl from "classnames";
 import { addCardProductAction } from "../../actions/cardProductAction";
 import { useDispatch, useSelector } from "react-redux";
 const Card = (props) => {
-    const productsInCard = useSelector((state) => state.cardProduct);
+    const productsInCard = useSelector((state) => state.cardProduct.productsInCard);
+
     const dispatch = useDispatch();
     const {id, name, tagline, description, image_url, first_brewed, volume, abv} = props
     

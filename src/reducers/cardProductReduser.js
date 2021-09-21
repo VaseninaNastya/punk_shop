@@ -11,7 +11,8 @@ const cardProductReduser = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 
-                productsInCard: Object.defineProperty(state.productsInCard, payload,{ value: payload}) 
+                //productsInCard: Object.defineProperty(state.productsInCard, payload,{ value: payload}) 
+                productsInCard: payload
             }
         case REMOVE_CARD_PRODUCT:
             return {
