@@ -7,10 +7,8 @@ const cardProductReduser = (state = initialState, { type, payload }) => {
     switch (type) {
 
         case ADD_CARD_PRODUCT:
-          console.log("productsInCard", state.productsInCard)
             return {
                 ...state,
-                
                 //productsInCard: Object.defineProperty(state.productsInCard, payload,{ value: payload}) 
                 productsInCard: payload
             }

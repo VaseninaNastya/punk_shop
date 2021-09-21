@@ -1,22 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import MainContentBlock from "./components/MainContentBlock";
+import CardPage from "./Pages/CardPage";
+import HomePage from "./Pages/HomePage";
 import { BrowserRouter as Router, Switch, Route , Redirect} from "react-router-dom";
 import Header from "./components/Header/index"
 function App() {
   return (
     <div className='wrapper'>
     <Router>
-    <Header />
     <Switch>
-    <Route path="/" exact component={MainContentBlock} />
+    <Route exact  path="/" component={HomePage} />
+    <Route exact path="/card" component={CardPage} />
     <Redirect to='/' />
     </Switch>
       </Router>
       </div>
-    /*<div className="App">
-      <CardHolder/>
-    </div>*/
   );
 }
 
