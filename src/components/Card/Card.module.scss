@@ -30,6 +30,15 @@
 .productCard_list {
   width: 70%;
   margin-left: 10px;
+  li.productCard_checkboxItem {
+      align-items: center;
+  }
+  li{
+    display: flex;
+  }
+  span{
+      margin-right: 5px;
+  }
 }
 .productCard_description {
   font-size: 15px;
