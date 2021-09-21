@@ -14,7 +14,7 @@ export default axios.create({
   responseType: "json"
 });*/
 
-class productsAPI {
+class ProductsAPI {
     constructor() {
       this.API_SERVER = 'https://api.punkapi.com/v2/beers';
   
@@ -30,4 +30,4 @@ class productsAPI {
         .catch((error) => Error(error));
     }
   }
-  export default productsAPI;
+  export default ProductsAPI;
