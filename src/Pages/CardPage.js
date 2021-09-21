@@ -5,7 +5,7 @@ import Header from '../components/Header'
 const CardPage = () => {
   return (
     <>
-        <Header button = {"Return to list"}/>
+        <Header button = {"Return to list"} link = {`/`}/>
         <CardContentBlock />
     </>
   );

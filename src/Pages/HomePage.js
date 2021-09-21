@@ -5,7 +5,7 @@ import Header from '../components/Header'
 const HomePage = () => {
   return (
     <>
-        <Header button = {"Card"}/>
+        <Header button = {"Card"} link = {`/card`}/>
         <MainContentBlock />
     </>
   );
