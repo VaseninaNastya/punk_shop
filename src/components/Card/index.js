@@ -8,8 +8,9 @@ const Card = (props) => {
         <div className = {s.productCard}>
             <h4  className = {s.productCard_title}>{name}</h4>
             <div className = {s.productCard_headInfo}>
-
-            <img className = {s.productCard_img} src={image_url}/>
+            <div className = {s.productCard_imgWrapper} >
+                <img className = {s.productCard_img} src={image_url}/>
+            </div>
             <ul className = {s.productCard_list}>
                 <li><span>Tagline: </span>{tagline}</li>
                 <li><span>First brewed: </span>{first_brewed}</li>
