@@ -1,7 +1,8 @@
 import { combineReducers} from 'redux'
-import cardListReduser from './cardListReduser';
-
+import getProductListReduser from './getProductListReduser';
+import cardProductReduser from './cardProductReduser'
 const redusers = combineReducers({
-    cardList: cardListReduser
+    productsList: getProductListReduser,
+    cardProduct: cardProductReduser,
 });
 export default redusers
