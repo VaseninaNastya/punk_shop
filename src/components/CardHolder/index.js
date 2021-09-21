@@ -13,17 +13,17 @@ const CardHolder = () => {
   const products = useSelector((state) => state.cardList.products);
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
+ /* const fetchProducts = async () => {
     const response = await axios
       .get("https://api.punkapi.com/v2/beers/")
       .catch((err) => {
         console.log("Err", err);
       });
     dispatch(cardListAction(response.data));
-  };
+  };*/
 
   useEffect(() => {
-    fetchProducts();
+    dispatch(cardListAction());
   }, []);
   console.log("products111", products);
   return (
