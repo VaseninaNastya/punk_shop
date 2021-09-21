@@ -1,13 +1,13 @@
-import { FETCH_PRODUCT_LIST } from "../actions/actionTypes";
+import { GET_ACTIVE_PAGE } from "../actions/actionTypes";
 
 const initialState = {
-  products: []
+  activePage: 1
 };
 
 const getProductListReduser = (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_PRODUCT_LIST:
-      return {...state, products: payload};
+    case GET_ACTIVE_PAGE:
+      return {...state, activePage: payload};
     default:
       return state;
   }
