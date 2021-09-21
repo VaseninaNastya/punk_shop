@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 const CardContentBlock = () => {
   const products = useSelector((state) => state);
-console.log("Cardproducts", products)
 const productFromCard = products.productsList.products.filter(item=>item.id === products.cardProduct.productsInCard)
-console.log("productFromCard", productFromCard)
   return (
     <div className={s.container}>
 
