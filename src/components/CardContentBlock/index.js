@@ -3,8 +3,13 @@ import s from "./CardContentBlock.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 const CardContentBlock = () => {
-  const products = useSelector((state) => state);
-  const productFromCard = products.productsList.products.filter(item=>item.id === products.cardProduct.productsInCard)
+  const allFetchedProducts = useSelector(
+    (state) => state.productsList.products
+  );
+  const productsInCard = useSelector(
+    (state) => state.cardProduct.productsInCard
+  );
+  const productFromCard = allFetchedProducts.filter(item=> productsInCard.includes(item.id))
   return (
     <div className={s.container}>
       {productFromCard.map(
