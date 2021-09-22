@@ -13,6 +13,7 @@ const CardHolder = () => {
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );
+
   const activePage = useSelector((state) => state.activePage.activePage);
   const sortedProducts = [];
   const dispatch = useDispatch();
