@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import s from "./Pagination.module.scss";
 import PaginationItem from '../PaginationItem/index'
 import PaginationButton from '../PaginationButton'
+
 const Pagination = () => {
 
   return (

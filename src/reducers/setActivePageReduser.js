@@ -1,10 +1,10 @@
-import { SET_ACTIVE_PAGE } from "../actions/actionTypes";
+import { SET_ACTIVE_PAGE,  INIT_ACTIVE_PAGE} from "../actions/actionTypes";
 
 const initialState = {
   activePage: 1
 };
 
-const setProductListReduser = (state = initialState, { type, payload }) => {
+export const setProductListReduser = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_ACTIVE_PAGE:
       return {...state, activePage: payload};
@@ -12,7 +12,15 @@ const setProductListReduser = (state = initialState, { type, payload }) => {
       return state;
   }
 };
+export const initProductListReduser = (state = initialState, { type }) => {
+  switch (type) {
+    case INIT_ACTIVE_PAGE:
+      return {...state};
+    default:
+      return state;
+  }
+};
 
-export default setProductListReduser;
+//export default setProductListReduser;
 
 

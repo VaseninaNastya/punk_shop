@@ -7,6 +7,6 @@ const productsAPI = new ProductsAPI();
 export const getNumbersOfPageAction = () => async (dispatch) =>{
     const response = await productsAPI.getData()
     dispatch({type: GET_NUMBERS_OF_PAGE,
-    payload: response.length/numbers.numberOfPageProducts})
+    payload: Math.ceil(response.length/numbers.numberOfPageProducts)})
 };
  
