@@ -1,5 +1,4 @@
 import React from "react";
-import HomePage from "../../Pages/HomePage";
 import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
 const Header = (props) => {
