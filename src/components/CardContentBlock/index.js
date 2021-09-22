@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 const CardContentBlock = () => {
   const products = useSelector((state) => state);
-const productFromCard = products.productsList.products.filter(item=>item.id === products.cardProduct.productsInCard)
+  const productFromCard = products.productsList.products.filter(item=>item.id === products.cardProduct.productsInCard)
   return (
     <div className={s.container}>
-
-{productFromCard.map(
+      {productFromCard.map(
         ({
           id,
           name,

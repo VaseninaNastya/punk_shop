@@ -1,28 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./Pagination.module.scss";
-
+import PaginationItem from '../PaginationItem/index'
+import PaginationButton from '../PaginationButton'
 const Pagination = () => {
+
   return (
     <div className={s.container}>
       <div className={s.pagination_container}>
-        <div className={s.pagination_item}>
-          &#60;
-        </div>
-        <div className={s.pagination_item}>
-          1
-        </div>
-        <div className={s.pagination_item}>
-          2
-        </div>
-        <div className={s.pagination_item}>
-          3
-        </div>
-        <div className={s.pagination_item}>
-          4
-        </div>
-        <div className={s.pagination_item}>
-          &#62;
-        </div>
+        <PaginationButton id="0" innerText = '<'/>
+        <PaginationItem id="1"/> 
+        <PaginationItem id="2"/> 
+        <PaginationItem id="3"/> 
+        <PaginationItem id="4"/> 
+        <PaginationButton id="5" innerText = '>'/>
       </div>
     </div>
   );

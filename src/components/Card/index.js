@@ -9,7 +9,7 @@ const Card = (props) => {
     const dispatch = useDispatch();
     const {id, name, tagline, description, image_url, first_brewed, volume, abv} = props
     
-    const addCard = function(){
+    const handleAddCard = function(){
       dispatch(addCardProductAction(id))
     }
     return (
@@ -24,7 +24,7 @@ const Card = (props) => {
                 <li><span>First brewed: </span>{first_brewed}</li>
                 <li><span>Volume: </span>{volume.value} {volume.unit}</li>
                 <li><span>abv: </span>{abv}%</li>
-                <li className={s.productCard_checkboxItem}><span>Add to card </span><input type="checkbox" onClick={ addCard }/></li>
+                <li className={s.productCard_checkboxItem}><span>Add to card </span><input type="checkbox" onClick={ handleAddCard }/></li>
             </ul>
             </div>
 
