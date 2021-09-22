@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './PaginationButton.module.scss'
 import cl from "classnames";
-import { decreaseActivePageAction, increaseActivePageAction, setActivePageAction } from "../../actions/paginationAction";
+import { setActivePageAction } from "../../actions/paginationAction";
 import { useDispatch, useSelector } from "react-redux";
 
 const PaginationButton = (props) => {
