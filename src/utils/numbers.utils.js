@@ -1,3 +1,3 @@
 module.exports = {
-  numberOfPageProducts: 20,
+  numberOfPageProducts: 21,
 };

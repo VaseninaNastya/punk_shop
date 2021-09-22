@@ -1,1 +1,18 @@
 @import "../../index.scss";
+header{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+    h2{
+        margin-right: 10px;
+    }
+    .header_button{
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+    }
+    .header_button:hover{
+        background-color: rgba(0, 0, 0, 0.07);
+    }
+}

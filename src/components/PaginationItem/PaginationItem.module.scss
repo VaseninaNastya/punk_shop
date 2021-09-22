@@ -1,1 +1,4 @@
 @import "../PaginationButton/PaginationButton.module.scss";
+.pagination_item__active{
+  background-color: rgba(0, 0, 0, 0.2);
+}

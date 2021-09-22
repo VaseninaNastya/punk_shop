@@ -28,7 +28,7 @@ const Card = (props) => {
             </ul>
             </div>
 
-            <p className = {s.productCard_description}> <span>Description: </span>{description}</p>
+            <p className = {s.productCard_description}>{description}</p>
         </div>
     )
 }
