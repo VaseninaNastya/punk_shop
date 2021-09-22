@@ -2,7 +2,7 @@ import { combineReducers} from 'redux'
 import getProductListReduser from './getProductListReduser';
 import cardProductReduser from './cardProductReduser';
 import getNumbersOfPageReduser from './getNumbersOfPageReduser';
-import {setProductListReduser} from './setActivePageReduser';
+import {setProductListReduser} from './paginationReduser';
 
 const redusers = combineReducers({
     productsList: getProductListReduser,

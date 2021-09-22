@@ -1,11 +1,9 @@
 import React from 'react';
 import s from './PaginationItem.module.scss'
 import cl from "classnames";
-import { setActivePageAction } from "../../actions/setActivePageAction";
+import { setActivePageAction } from "../../actions/paginationAction";
 import { useDispatch, useSelector } from "react-redux";
 const PaginationItem = (props) => {
-    const productsInCard = useSelector((state) => state);
-console.log("productsInCard ", productsInCard )
     const dispatch = useDispatch();
     const {id} = props
     
