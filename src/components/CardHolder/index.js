@@ -4,7 +4,7 @@ import cl from "classnames";
 import { getProductListAction } from "../../actions/getProductListAction";
 import { initActivePageAction } from "../../actions/paginationAction";
 import { getCardProductsAction } from "../../actions/cardProductAction";
-import { getNumbersOfPageAction } from "../../actions/getNumbersOfPageAction";
+import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import numbers from "../../utils/numbers.utils";
@@ -16,14 +16,14 @@ const CardHolder = () => {
   const searchProducts = useSelector(
     (state) => state.productSearch.products
   );
-  const productsForSorting = searchProducts.length ?searchProducts : allFetchedProducts
+  const productsForSorting = searchProducts.length ? searchProducts : allFetchedProducts
   const activePage = useSelector((state) => state.activePage.activePage);
   const sortedProducts = [];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductListAction());
     dispatch(getCardProductsAction());
-    dispatch(getNumbersOfPageAction());
+    dispatch(initNumbersOfPageAction ());
     dispatch(initActivePageAction());
   }, []);
   for (let i = 0; i < productsForSorting.length; i += numbers.numberOfPageProducts) {
