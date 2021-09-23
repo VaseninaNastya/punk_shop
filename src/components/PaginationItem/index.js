@@ -3,6 +3,7 @@ import s from './PaginationItem.module.scss'
 import cl from "classnames";
 import { setActivePageAction } from "../../actions/paginationAction";
 import { useDispatch, useSelector } from "react-redux";
+
 const PaginationItem = (props) => {
     const dispatch = useDispatch();
     const {id} = props

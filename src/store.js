@@ -6,7 +6,7 @@ import rootReduser from './reducers/index';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReduser, composeEnhancers(applyMiddleware(thunk)));
 
-export default store
+export default store;
 
 
 

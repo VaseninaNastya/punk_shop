@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import s from "./CardHolder.module.scss";
-import cl from "classnames";
 import { getProductListAction } from "../../actions/getProductListAction";
 import { initActivePageAction } from "../../actions/paginationAction";
 import { getCardProductsAction } from "../../actions/cardProductAction";
