@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productSearchAction } from "../../actions/productSearchAction";
 import { changeNumbersOfPageAction } from "../../actions/numbersOfPageAction";
+import cl from "classnames";
 const Header = (props) => {
-  const { button, link } = props;
+  const { button, link, muteInput } = props;
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );
   const searchProducts = useSelector(
     (state) => state.productSearch.products
   );
+  const inputClass = cl(s.search_input, { [s.search_input_hidden]: muteInput==="true"});
   const productsForSorting = searchProducts.length ? searchProducts : allFetchedProducts
   const dispatch = useDispatch();
   const handleSearch = function (e) {
@@ -33,7 +35,7 @@ const Header = (props) => {
         <Link to={link}>
           <div className={s.header_button}>{button} </div>
         </Link>
-        <input className={s.search_input} onChange={handleSearch} type="text" />
+        <input className={inputClass} onChange={handleSearch} type="text" />
       </header>
     </div>
   );
