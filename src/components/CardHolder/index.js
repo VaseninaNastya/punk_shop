@@ -13,7 +13,10 @@ const CardHolder = () => {
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );
-
+  const searchProducts = useSelector(
+    (state) => state.productSearch.products
+  );
+  const productsForSorting = searchProducts.length ?searchProducts : allFetchedProducts
   const activePage = useSelector((state) => state.activePage.activePage);
   const sortedProducts = [];
   const dispatch = useDispatch();
@@ -23,9 +26,9 @@ const CardHolder = () => {
     dispatch(getNumbersOfPageAction());
     dispatch(initActivePageAction());
   }, []);
-  for (let i = 0; i < allFetchedProducts.length; i += numbers.numberOfPageProducts) {
+  for (let i = 0; i < productsForSorting.length; i += numbers.numberOfPageProducts) {
     sortedProducts.push(
-      allFetchedProducts.slice(i, i + numbers.numberOfPageProducts)
+        productsForSorting.slice(i, i + numbers.numberOfPageProducts)
     );
   }
 
