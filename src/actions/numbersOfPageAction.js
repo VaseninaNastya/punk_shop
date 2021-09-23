@@ -10,8 +10,6 @@ export const initNumbersOfPageAction = () => async (dispatch) =>{
     payload: Math.ceil(response.length/numbers.numberOfPageProducts)})
 };
 export const changeNumbersOfPageAction = (arr) => {
-    console.log("arr", arr)
-    console.log("number",  Math.ceil(arr.length/numbers.numberOfPageProducts))
     return {
         type: CHANGE_NUMBERS_OF_PAGE,
         payload: Math.ceil(arr.length/numbers.numberOfPageProducts)

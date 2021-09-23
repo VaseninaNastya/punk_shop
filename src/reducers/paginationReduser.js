@@ -22,5 +22,3 @@ export const initProductListReduser = (state = initialState, { type }) => {
 };
 
 
-//export default setProductListReduser;
-

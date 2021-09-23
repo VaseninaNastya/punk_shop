@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import s from "./CardContentBlock.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Card from "../Card";
 const CardContentBlock = () => {
   const allFetchedProducts = useSelector(
