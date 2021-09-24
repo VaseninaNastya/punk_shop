@@ -1,0 +1,19 @@
+.popup_wrapper{
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.popup_container{
+  z-index: 5;
+  width: 50%;
+  margin: auto;
+  height: 200px;
+  background-color: white;
+}
+.popup_wrapper_hidden{
+  display: none;
+}
