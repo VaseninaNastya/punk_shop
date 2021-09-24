@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination'
 const HomePage = () => {
   return (
     <>
-        <Header button = {"Card"} link = {`/punk_shop/build/card`}/>
+        <Header button = {"Card"} link = {`/card`}/>
         <MainContentBlock />
         <Pagination/>
     </>
