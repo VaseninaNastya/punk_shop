@@ -14,9 +14,9 @@ function App() {
     <div className="wrapper">
       <Router>
         <Switch>
-          <Route exact path="/punk_shop/build" component={HomePage} />
-          <Route exact path="/punk_shop/build/card" component={CardPage} />
-          <Redirect to="/punk_shop/build" />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/card" component={CardPage} />
+          <Redirect to="/" />
         </Switch>
       </Router>
     </div>
