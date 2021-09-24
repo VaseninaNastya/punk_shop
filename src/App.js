@@ -3,7 +3,7 @@ import "./App.css";
 import CardPage from "./Pages/CardPage";
 import HomePage from "./Pages/HomePage";
 import {
-  BrowserRouter as Router,
+  BrowserRouter as HashRouter,
   Switch,
   Route,
   Redirect,
@@ -12,13 +12,13 @@ import {
 function App() {
   return (
     <div className="wrapper">
-      <Router>
+      <HashRouter>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/card" component={CardPage} />
           <Redirect to="/" />
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
