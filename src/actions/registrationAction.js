@@ -1,4 +1,4 @@
-import { OPEN_REGISTRATION_POPUP, CLOSE_REGISTRATION_POPUP } from "./actionTypes";
+import { OPEN_REGISTRATION_POPUP, CLOSE_REGISTRATION_POPUP} from "./actionTypes";
 
 export const openRegistrationPopupAction = () =>{
     return {
@@ -12,3 +12,4 @@ export const closeRegistrationPopupAction = () =>{
         type: CLOSE_REGISTRATION_POPUP
     }
 }
+
