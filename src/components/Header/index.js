@@ -7,6 +7,7 @@ import { setActivePageAction } from "../../actions/paginationAction";
 
 import { openRegistrationPopupAction } from "../../actions/registrationAction";
 import { changeNumbersOfPageAction } from "../../actions/numbersOfPageAction";
+import Sort from '../Sort'
 import cl from "classnames";
 const Header = (props) => {
   const { button, link, muteInput } = props;
@@ -52,6 +53,7 @@ const Header = (props) => {
         </Link>
         <div className={popupButtonClass} onClick={handleOpenPopup}>{popupButtonInnerText}</div>
         <input className={inputClass} onChange={handleSearch} type="text" />
+        <Sort/>
       </header>
     </div>
   );
