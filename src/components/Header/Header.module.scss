@@ -15,6 +15,11 @@ header{
         margin-right: 10px;
         cursor: pointer;
     }
+
+    .search_popupButton_afterRegistration{
+        padding: 5px 10px;
+        margin-right: 10px;
+    }
     .header_button:hover,
     .search_popupButton:hover{
         background-color: rgba(0, 0, 0, 0.07);

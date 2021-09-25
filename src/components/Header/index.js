@@ -14,22 +14,29 @@ const Header = (props) => {
   const searchProducts = useSelector(
     (state) => state.productSearch.products
   );
+  const registrationFieldRight = useSelector(
+    (state) => state.checkRegistrationField.allFieldsRight
+  );
   const inputClass = cl(s.search_input, { [s.search_input_hidden]: muteInput==="true"});
-  const popupButtonClass = cl(s.search_popupButton, { [s.search_popupButton_hidden]: muteInput==="true"});
+  const popupButtonClass = cl({[s.search_popupButton]: !registrationFieldRight},{[s.search_popupButton_afterRegistration]: registrationFieldRight}, { [s.search_popupButton_hidden]: muteInput==="true"}, );
+  const popupButtonInnerText = registrationFieldRight ? "You are registered.": "Registration"
   const productsForSorting = searchProducts.length ? searchProducts : allFetchedProducts
   const dispatch = useDispatch();
   const handleSearch = function (e) {
-    const value = e.target.value;
-    dispatch(productSearchAction(
-        {
-            products: allFetchedProducts,
-            str: value
-        }
-    ));
+      const value = e.target.value;
+      dispatch(productSearchAction(
+          {
+              products: allFetchedProducts,
+              str: value
+          }
+      ));
   };
   const handleOpenPopup = function(){
-    dispatch(openRegistrationPopupAction())
+    if(!registrationFieldRight){
+      dispatch(openRegistrationPopupAction())
+    }
   }
+
   useEffect(() => {
     dispatch(changeNumbersOfPageAction(productsForSorting));
   })
@@ -40,7 +47,7 @@ const Header = (props) => {
         <Link to={link}>
           <div className={s.header_button}>{button} </div>
         </Link>
-        <div className={popupButtonClass} onClick={handleOpenPopup}>Registration</div>
+        <div className={popupButtonClass} onClick={handleOpenPopup}>{popupButtonInnerText}</div>
         <input className={inputClass} onChange={handleSearch} type="text" />
       </header>
     </div>
