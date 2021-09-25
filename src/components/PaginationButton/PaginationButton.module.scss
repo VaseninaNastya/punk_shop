@@ -1,6 +1,7 @@
 .pagination_item{
   padding: 5px;
   cursor: pointer;
+  height: fit-content;
 }
 .pagination_item:not(.pagination_item__active):hover{
   background-color: rgba(0, 0, 0, 0.1);
