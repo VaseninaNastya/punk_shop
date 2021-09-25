@@ -1,0 +1,17 @@
+.popup_item{
+  display: flex;
+  flex-direction: column;
+  label{
+    margin-right: 5px;
+  }
+  input{
+    padding: 0 5px;
+    width: 250px;
+  }
+  .popup_item_maincontent{
+    display: flex;
+  }
+  .errorMessage_hidden{
+    display: none;
+  }
+}

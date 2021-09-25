@@ -7,15 +7,25 @@ header{
     h2{
         margin-right: 10px;
     }
-    .header_button{
+    .header_button,
+    .search_popupButton{
         padding: 5px 10px;
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
     }
-    .header_button:hover{
+
+    .search_popupButton_afterRegistration{
+        padding: 5px 10px;
+        margin-right: 10px;
+    }
+    .header_button:hover,
+    .search_popupButton:hover{
         background-color: rgba(0, 0, 0, 0.07);
     }
-    .search_input_hidden{
+    .search_input_hidden,
+    .search_popupButton_hidden{
         display: none;
     }
 }
