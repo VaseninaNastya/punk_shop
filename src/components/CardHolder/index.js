@@ -19,7 +19,9 @@ const CardHolder = () => {
   const searchProducts = useSelector(
     (state) => state.productSearch.products
   );
-  const productsForSorting = sortedProducts.length ?  sortedProducts : searchProducts.length ? searchProducts : allFetchedProducts
+  const productsForSorting = searchProducts.length ? searchProducts : sortedProducts.length ? sortedProducts :  allFetchedProducts
+
+
 
   const activePage = useSelector((state) => state.activePage.activePage);
   const structureProducts = [];

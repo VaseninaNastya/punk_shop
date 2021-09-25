@@ -11,6 +11,7 @@ import Sort from '../Sort'
 import cl from "classnames";
 const Header = (props) => {
   const { button, link, muteInput } = props;
+
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );

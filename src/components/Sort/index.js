@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { productSortAction } from "../../actions/productSortAction";
 
 const Sort = () => {
+
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );
@@ -11,6 +12,7 @@ const Sort = () => {
     (state) => state.productSearch.products
   );
   const productsForSort = searchProducts.length ? searchProducts : allFetchedProducts
+  const disabledSelect = searchProducts.length ? "disabled" : null
   const dispatch = useDispatch();
   const handleSortChoise = function (e) {
     const value = e.target.value;
@@ -41,7 +43,7 @@ const Sort = () => {
 
   return (
     <>
-      <select onChange={handleSortChoise}>
+      <select disabled = {disabledSelect} onChange={handleSortChoise}>
         <option value="first_brewed">First brewed</option>
         <option value="name">Name</option>
         <option value="abv">abv</option>
