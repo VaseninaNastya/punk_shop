@@ -3,6 +3,8 @@ import s from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productSearchAction } from "../../actions/productSearchAction";
+import { setActivePageAction } from "../../actions/paginationAction";
+
 import { openRegistrationPopupAction } from "../../actions/registrationAction";
 import { changeNumbersOfPageAction } from "../../actions/numbersOfPageAction";
 import cl from "classnames";
@@ -24,6 +26,7 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const handleSearch = function (e) {
       const value = e.target.value;
+      dispatch(setActivePageAction(1))
       dispatch(productSearchAction(
           {
               products: allFetchedProducts,
@@ -33,10 +36,10 @@ const Header = (props) => {
   };
   const handleOpenPopup = function(){
     if(!registrationFieldRight){
+
       dispatch(openRegistrationPopupAction())
     }
   }
-
   useEffect(() => {
     dispatch(changeNumbersOfPageAction(productsForSorting));
   })
