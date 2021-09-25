@@ -14,7 +14,7 @@ const cardProductReduser = (state = initialState, { type, payload }) => {
         case REMOVE_CARD_PRODUCT:
             return {
                 ...state,
-                productsInCard: state.productsInCard.filter(item => item !=payload),
+                productsInCard: state.productsInCard.filter(item => +item !== +payload),
             }
         case GET_CARD_PRODUCT:
             return {...state};

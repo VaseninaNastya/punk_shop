@@ -1,8 +1,7 @@
 import React from "react";
 import s from "./RegistrationPopupListItem.module.scss";
 import cl from "classnames";
-import { useDispatch, useSelector } from "react-redux";
-import { closeRegistrationPopupAction } from "../../actions/registrationAction";
+
 
 const RegistrationPopupListItem = (props) => {
   const { labelInnerText, inputId, errorMessage, emptyErrorMessage, wrongValue, emptyInput} = props;

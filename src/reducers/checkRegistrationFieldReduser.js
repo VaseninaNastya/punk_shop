@@ -40,7 +40,7 @@ export const checkRegistrationFieldReduser = (state = initialState,{ type, paylo
       if(!payload.value.length){
         return { ...state, email: {emptyInput: true, wrongValue: false,} };
       }
-      if(payload.value.length && !payload.value.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi)){
+if(payload.value.length && !payload.value.match(/\b[\w.-]+@[\w.-]+\.\w{2,4}\b/gi)){
         return { ...state, email: {emptyInput: false, wrongValue: true,} };
       }
       return { ...state, email: {emptyInput: false, wrongValue: false,} };
@@ -69,12 +69,13 @@ export const checkRegistrationFieldReduser = (state = initialState,{ type, paylo
         if (item.name === 'dateOfBirth' && item.value.length && item.value.match(/^(((0[1-9]|[12][0-9]|3[01])[- /.](0[13578]|1[02])|(0[1-9]|[12][0-9]|30)[- /.](0[469]|11)|(0[1-9]|1\d|2[0-8])[- /.]02)[- /.]\d{4}|29[- /.]02[- /.](\d{2}(0[48]|[2468][048]|[13579][26])|([02468][048]|[1359][26])00))$/gi)) {
           result.push(true)
         }
-        if (item.name === 'email' && item.value.length && item.value.match(/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi)) {
+        if (item.name === 'email' && item.value.length && item.value.match(/\b[\w.-]+@[\w.-]+\.\w{2,4}\b/gi)) {
           result.push(true)
         }
         if (item.name === 'password' && item.value.length && item.value.length >= 6) {
           result.push(true)
         }
+        return item
       })
       return { ...state, allFieldsRight: result.length === payload.length };
     default:

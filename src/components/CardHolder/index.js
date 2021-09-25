@@ -54,6 +54,7 @@ const CardHolder = () => {
           }) => {
             return (
               <Card
+              key={id}
                 id={id}
                 name={name}
                 tagline={tagline}

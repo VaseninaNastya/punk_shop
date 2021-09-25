@@ -21,9 +21,7 @@ const RegistrationPopup = () => {
   const registrationFieldRight = useSelector(
     (state) => state.checkRegistrationField.allFieldsRight
   );
-  const registrationIsOpen = useSelector(
-    (state) => state.registration.popupActive
-  );
+
   
   const popupState = useSelector((state) => state.registration.popupActive);
   useEffect(() => {
@@ -52,6 +50,7 @@ const RegistrationPopup = () => {
           dispatch(checkEmailFieldRegistrationPopupAction(item));
         if (item.name === "password")
           dispatch(checkPasswordFieldRegistrationPopupAction(item));
+        return item
       });
       dispatch(checkAllFieldRegistrationPopupAction(payload));
     }
@@ -71,9 +70,11 @@ const RegistrationPopup = () => {
           emptyErrorMessage={popupListItemInfo.emptyErrorMessage}
           wrongValue={popupListItemInfo.wrongValue}
           emptyInput={popupListItemInfo.emptyInput}
+          key={popupListItemInfo.inputId}
         />
       );
     }
+    return item
   });
 
   const popupWrapperClass = cl(s.popup_wrapper, {

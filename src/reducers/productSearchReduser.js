@@ -7,7 +7,6 @@ const initialState = {
 const productSearchReduser = (state = initialState, { type, payload }) => {
   switch (type) {
     case PRODUCT_SEARCH:
-      console.log("payload.str", payload.str)
       if(!payload.str.length){
         return{...state, products:[]}
       }
