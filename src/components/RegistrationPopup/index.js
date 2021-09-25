@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./RegistrationPopup.module.scss";
 import cl from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { closeRegistrationPopupAction } from "../../actions/registrationAction";
-import { checkNameFieldRegistrationPopupAction,  checkEmailFieldRegistrationPopupAction, checkDateFieldRegistrationPopupAction,  checkPasswordFieldRegistrationPopupAction } from "../../actions/checkRegistrationFieldAction";
+import {
+  checkNameFieldRegistrationPopupAction,
+  checkEmailFieldRegistrationPopupAction,
+  checkDateFieldRegistrationPopupAction,
+  checkPasswordFieldRegistrationPopupAction,
+  checkAllFieldRegistrationPopupAction
+} from "../../actions/checkRegistrationFieldAction";
 import registrationItems from "../../utils/registrationItems.utils";
 import RegistrationPopupListItem from "../RegistrationPopupListItem";
 
 const RegistrationPopup = () => {
-  const checkRegistrationField = useSelector((state) => state.checkRegistrationField);
+
+  const checkRegistrationField = useSelector(
+    (state) => state.checkRegistrationField
+  );
+  const registrationFieldRight = useSelector(
+    (state) => state.checkRegistrationField.allFieldsRight
+  );
+  const registrationIsOpen = useSelector(
+    (state) => state.registration.popupActive
+  );
+  
+  const popupState = useSelector((state) => state.registration.popupActive);
+  useEffect(() => {
+    if(registrationFieldRight) {
+      dispatch(closeRegistrationPopupAction());
+    }
+  })
   const dispatch = useDispatch();
   const handleClosePopup = function () {
     dispatch(closeRegistrationPopupAction());
@@ -21,32 +43,39 @@ const RegistrationPopup = () => {
       inputs.forEach((item) => {
         payload.push({ name: item.getAttribute("id"), value: item.value });
       });
-      payload.map((item)=>{
-        if(item.name === 'name') dispatch(checkNameFieldRegistrationPopupAction(item))
-        if(item.name === 'dateOfBirth') dispatch(checkDateFieldRegistrationPopupAction(item))
-        if(item.name === 'email') dispatch(checkEmailFieldRegistrationPopupAction(item))
-        if(item.name === 'password') dispatch(checkPasswordFieldRegistrationPopupAction(item))
-      })
+      payload.map((item) => {
+        if (item.name === "name")
+          dispatch(checkNameFieldRegistrationPopupAction(item));
+        if (item.name === "dateOfBirth")
+          dispatch(checkDateFieldRegistrationPopupAction(item));
+        if (item.name === "email")
+          dispatch(checkEmailFieldRegistrationPopupAction(item));
+        if (item.name === "password")
+          dispatch(checkPasswordFieldRegistrationPopupAction(item));
+      });
+      dispatch(checkAllFieldRegistrationPopupAction(payload));
     }
   };
   const fragment = [];
-  registrationItems.map((item)=>{
-    if(item.inputId){
-      const popupListItemInfo = {...checkRegistrationField[item.inputId], ...item}
+  registrationItems.map((item) => {
+    if (item.inputId) {
+      const popupListItemInfo = {
+        ...checkRegistrationField[item.inputId],
+        ...item,
+      };
       fragment.push(
         <RegistrationPopupListItem
           labelInnerText={popupListItemInfo.labelInnerText}
           inputId={popupListItemInfo.inputId}
           errorMessage={popupListItemInfo.errorMessage}
           emptyErrorMessage={popupListItemInfo.emptyErrorMessage}
-          wrongValue= {popupListItemInfo.wrongValue}
-          emptyInput =  {popupListItemInfo.emptyInput}
+          wrongValue={popupListItemInfo.wrongValue}
+          emptyInput={popupListItemInfo.emptyInput}
         />
       );
     }
-  })
+  });
 
-  const popupState = useSelector((state) => state.registration.popupActive);
   const popupWrapperClass = cl(s.popup_wrapper, {
     [s.popup_wrapper_hidden]: popupState === false,
   });

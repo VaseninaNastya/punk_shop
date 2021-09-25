@@ -28,7 +28,6 @@ const Header = (props) => {
     ));
   };
   const handleOpenPopup = function(){
-    console.log("itsWork")
     dispatch(openRegistrationPopupAction())
   }
   useEffect(() => {
