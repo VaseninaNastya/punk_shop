@@ -12,12 +12,19 @@ const CardHolder = () => {
   const allFetchedProducts = useSelector(
     (state) => state.productsList.products
   );
+
+  const sortedProducts = useSelector(
+    (state) => state.productSort.products
+  );
   const searchProducts = useSelector(
     (state) => state.productSearch.products
   );
-  const productsForSorting = searchProducts.length ? searchProducts : allFetchedProducts
+  const productsForSorting = searchProducts.length ? searchProducts : sortedProducts.length ? sortedProducts :  allFetchedProducts
+
+
+
   const activePage = useSelector((state) => state.activePage.activePage);
-  const sortedProducts = [];
+  const structureProducts = [];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProductListAction());
@@ -26,15 +33,15 @@ const CardHolder = () => {
     dispatch(initActivePageAction());
   }, []);
   for (let i = 0; i < productsForSorting.length; i += numbers.numberOfPageProducts) {
-    sortedProducts.push(
+    structureProducts.push(
         productsForSorting.slice(i, i + numbers.numberOfPageProducts)
     );
   }
 
-  if (sortedProducts.length > 0) {
+  if (structureProducts.length > 0) {
     return (
       <div className={s.cardHolder_container}>
-        {sortedProducts[activePage - 1].map(
+        {structureProducts[activePage - 1].map(
           ({
             id,
             name,
@@ -47,6 +54,7 @@ const CardHolder = () => {
           }) => {
             return (
               <Card
+              key={id}
                 id={id}
                 name={name}
                 tagline={tagline}

@@ -10,7 +10,7 @@ const Pagination = () => {
   );
   const fragment = [];
   for (let index = 1; index <= numbersOfPage; index++) {
-    fragment.push(<PaginationItem id={index} />);
+    fragment.push(<PaginationItem key={index} id={index} />);
   }
   return (
     <div className={s.container}>

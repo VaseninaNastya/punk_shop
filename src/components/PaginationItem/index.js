@@ -12,7 +12,7 @@ const PaginationItem = (props) => {
     const handleСhangePage = function(){
       dispatch( setActivePageAction(id))
     }
-    const buttonClass = cl(s.pagination_item, { [s.pagination_item__active]: id == activePage});
+    const buttonClass = cl(s.pagination_item, { [s.pagination_item__active]: +id === +activePage});
 
     return (
         <div data_id = {id} className = {buttonClass}  onClick={handleСhangePage}>

@@ -30,7 +30,7 @@ const Card = (props) => {
       <h4 className={s.productCard_title}>{name}</h4>
       <div className={s.productCard_headInfo}>
         <div className={s.productCard_imgWrapper}>
-          <img className={s.productCard_img} src={image_url} />
+          <img className={s.productCard_img} src={image_url} alt={name} />
         </div>
         <ul className={s.productCard_list}>
           <li><span>Tagline: </span>{tagline}</li>

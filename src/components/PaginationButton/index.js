@@ -20,7 +20,7 @@ const PaginationButton = (props) => {
             dispatch( setActivePageAction(activePage))
         }
     }
-    const buttonClass = cl(s.pagination_item, { [s.pagination_item__inactive]: (id == "0" && activePage == "1") || (id !== "0" && activePage == numbersOfPage)});
+    const buttonClass = cl(s.pagination_item, { [s.pagination_item__inactive]: (+id === 0 && +activePage === 1) || (+id !== 0 && +activePage === +numbersOfPage)});
     return (
         <div className = {buttonClass}   onClick={handleСhangePage}>
             {innerText}

@@ -27,8 +27,19 @@ header{
     .search_popupButton:hover{
         background-color: rgba(0, 0, 0, 0.07);
     }
-    .search_input_hidden,
+    .searchSort_container{
+        display: flex;
+    }
+    .searchSort_container_hidden,
     .search_popupButton_hidden{
         display: none;
+    }
+    .search_input{
+        padding: 0 5px;
+    }
+    .input_container{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
     }
 }
