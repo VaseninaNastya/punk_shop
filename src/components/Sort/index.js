@@ -18,37 +18,41 @@ const Sort = () => {
     const value = e.target.value;
     const sorted = []
     productsForSort.map(item=>sorted.push(item))
-    sorted.sort(function (a, b) {
-      let sortItem = value
-      if(value === "first_brewed"){
-        if (Number(a[sortItem].split("/")[0])+ Number(a[sortItem].split("/")[1])*12 > Number(b[sortItem].split("/")[0])+ Number(b[sortItem].split("/")[1])*12) {
+    if(value !== 'without_sorting'){
+      sorted.sort(function (a, b) {
+        let sortItem = value
+        if(value === "first_brewed"){
+          if (Number(a[sortItem].split("/")[0])+ Number(a[sortItem].split("/")[1])*12 > Number(b[sortItem].split("/")[0])+ Number(b[sortItem].split("/")[1])*12) {
+            return 1;
+          }
+          if (Number(a[sortItem].split("/")[0])+ Number(a[sortItem].split("/")[1])*12 < Number(b[sortItem].split("/")[0])+ Number(b[sortItem].split("/")[1])*12) {
+            return -1;
+          }
+          return 0;
+  
+        }
+        if (a[sortItem] > b[sortItem]) {
           return 1;
         }
-        if (Number(a[sortItem].split("/")[0])+ Number(a[sortItem].split("/")[1])*12 < Number(b[sortItem].split("/")[0])+ Number(b[sortItem].split("/")[1])*12) {
+        if (a[sortItem] < b[sortItem]) {
           return -1;
         }
         return 0;
-
-      }
-      if (a[sortItem] > b[sortItem]) {
-        return 1;
-      }
-      if (a[sortItem] < b[sortItem]) {
-        return -1;
-      }
-      return 0;
-    });
+      });  
+    } 
     dispatch(productSortAction(sorted));
   };
 
   return (
-    <>
+    <div className= {s.sort_container}>
+    <span className = {s.sort_title}>Sort:</span>
       <select disabled = {disabledSelect} onChange={handleSortChoise}>
+        <option value="without_sorting">Without sorting</option>
         <option value="first_brewed">First brewed</option>
         <option value="name">Name</option>
         <option value="abv">abv</option>
       </select>
-    </>
+    </div>
   );
 };
 
