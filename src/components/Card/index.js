@@ -5,10 +5,8 @@ import {
   removeCardProductAction,
 } from "../../actions/cardProductAction";
 import { useDispatch, useSelector } from "react-redux";
-const Card = (props) => {
-  
+const Card = ({id,name,tagline,description, image_url,first_brewed,volume,abv}) => {
   const basket = useSelector((state) => state.cardProduct.productsInCard);
-  const {id,name,tagline,description, image_url,first_brewed,volume,abv,} = props;
   const checkboxBasketAttr = basket.includes(id) ? "checked" : null;
   const dispatch = useDispatch();
   const handleAddCard = function () {
@@ -22,11 +20,11 @@ const Card = (props) => {
           <img className={s.productCard_img} src={image_url} alt={name} />
         </div>
         <ul className={s.productCard_list}>
-          <li><span>Tagline: </span>{tagline}</li>
-          <li><span>First brewed: </span>{first_brewed}</li>
-          <li><span>Volume: </span>{volume.value} {volume.unit}</li>
-          <li><span>abv: </span>{abv}%</li>
-          <li className={s.productCard_checkboxItem}>
+          <li key = '1'><span>Tagline: </span>{tagline}</li>
+          <li key = '2'><span>First brewed: </span>{first_brewed}</li>
+          <li key = '3'><span>Volume: </span>{volume.value} {volume.unit}</li>
+          <li key = '4'><span>abv: </span>{abv}%</li>
+          <li key = '5' className={s.productCard_checkboxItem}>
             <span>Add to card </span>
             <input checked={checkboxBasketAttr} type="checkbox" onChange={handleAddCard}/>
           </li>

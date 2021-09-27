@@ -10,19 +10,12 @@ import {
   checkPasswordFieldRegistrationPopupAction,
   checkAllFieldRegistrationPopupAction
 } from "../../actions/checkRegistrationFieldAction";
-import registrationItems from "../../utils/registrationItems.utils";
+import registrationItems from "../../constants/registrationItems.constants";
 import RegistrationPopupListItem from "../RegistrationPopupListItem";
 
 const RegistrationPopup = () => {
-
-  const checkRegistrationField = useSelector(
-    (state) => state.checkRegistrationField
-  );
-  const registrationFieldRight = useSelector(
-    (state) => state.checkRegistrationField.allFieldsRight
-  );
-
-  
+  const checkRegistrationField = useSelector((state) => state.checkRegistrationField);
+  const registrationFieldRight = useSelector((state) => state.checkRegistrationField.allFieldsRight);
   const popupState = useSelector((state) => state.registration.popupActive);
   useEffect(() => {
     if(registrationFieldRight) {
@@ -86,14 +79,14 @@ const RegistrationPopup = () => {
       <div className={s.popup_overlay} onClick={handleClosePopup}></div>
       <form className={s.popup_container} onClick={handleSubmit}>
         <ul>
-          <li>
+          <li key = '1'>
             <div
               className={s.popup_closeButton}
               onClick={handleClosePopup}
             ></div>
           </li>
           {fragment}
-          <li>
+          <li key = '2'>
             <button id="submit" className={s.popup_submitButton}>
               Submit
             </button>

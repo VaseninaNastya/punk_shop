@@ -5,9 +5,8 @@ import { setActivePageAction } from "../../actions/paginationAction";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const PaginationItem = (props) => {
+const PaginationItem = ({id}) => {
     const dispatch = useDispatch();
-    const {id} = props
     let activePage = useSelector((state) => state.activePage.activePage);
     const handleСhangePage = function(){
       dispatch( setActivePageAction(id))

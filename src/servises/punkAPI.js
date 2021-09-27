@@ -1,4 +1,4 @@
-import apiUrl from "../utils/apiUrl.utils";
+import apiUrl from "../constants/apiUrl.constants";
 
 class ProductsAPI {
     constructor() {
