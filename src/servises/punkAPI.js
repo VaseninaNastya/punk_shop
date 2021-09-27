@@ -1,6 +1,8 @@
+import apiUrl from "../utils/apiUrl.utils";
+
 class ProductsAPI {
     constructor() {
-      this.API_SERVER = 'https://api.punkapi.com/v2/beers?page=1&per_page=80';
+      this.API_SERVER = apiUrl.punkAPIurl;
   
     }
     /*  Users   */

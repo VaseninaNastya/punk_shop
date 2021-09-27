@@ -34,8 +34,8 @@ const Header = (props) => {
     ? searchProducts
     : allFetchedProducts;
   const dispatch = useDispatch();
-  const handleSearch = function (e) {
-    const value = e.target.value;
+  const handleSearch = function ({target}) {
+    const value = target.value;
     dispatch(setActivePageAction(1));
     dispatch(
       productSearchAction({
