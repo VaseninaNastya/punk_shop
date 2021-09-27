@@ -1,5 +1,5 @@
 import { INIT_NUMBERS_OF_PAGE, CHANGE_NUMBERS_OF_PAGE } from "./actionTypes";
-import numbers from '../utils/numbers.utils.js'
+import numbers from '../constants/numbers.constants.js'
 import ProductsAPI from '../servises/punkAPI';
 const productsAPI = new ProductsAPI();
 

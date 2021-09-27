@@ -4,12 +4,10 @@ import cl from "classnames";
 import { setActivePageAction } from "../../actions/paginationAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const PaginationButton = (props) => {
+const PaginationButton = ({id, innerText}) => {
     let activePage = useSelector((state) => state.activePage.activePage);
     const numbersOfPage = useSelector((state) => state.numbersOfPage.numbersOfPage);
     const dispatch = useDispatch();
-    const {id, innerText} = props
-    
     const handleСhangePage = function(){
         if(id === "0" && activePage > 1){
             activePage = Number(activePage) - 1

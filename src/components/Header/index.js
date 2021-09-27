@@ -34,8 +34,7 @@ const Header = (props) => {
     ? searchProducts
     : allFetchedProducts;
   const dispatch = useDispatch();
-  const handleSearch = function ({target}) {
-    const value = target.value;
+  const handleSearch = function ({target: {value}}) {
     dispatch(setActivePageAction(1));
     dispatch(
       productSearchAction({
@@ -67,7 +66,6 @@ const Header = (props) => {
           <span className={s.input_title}> Search: </span>
           <input className={s.search_input} onChange={handleSearch} type="text" />
         </div>
-
         <Sort />
         </div>
       </header>

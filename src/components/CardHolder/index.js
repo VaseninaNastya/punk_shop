@@ -6,7 +6,7 @@ import { getCardProductsAction } from "../../actions/cardProductAction";
 import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
-import numbers from "../../utils/numbers.utils";
+import numbers from "../../constants/numbers.constants";
 
 const CardHolder = () => {
   const allFetchedProducts = useSelector(
