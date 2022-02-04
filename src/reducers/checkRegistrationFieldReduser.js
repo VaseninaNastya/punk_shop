@@ -6,6 +6,7 @@ import {
   CHECK_ALL_FIELD_REGISTRATION_POPUP
 } from "../actions/actionTypes";
 
+
 const initialState = {
   name: {
     emptyInput: false,

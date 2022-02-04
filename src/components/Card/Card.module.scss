@@ -5,9 +5,9 @@
   align-items: center;
   justify-content: center;
 }
-.productCard_img{
-    max-width: 100%;
-    max-height: 100%;
+.productCard_img {
+  max-width: 100%;
+  max-height: 100%;
 }
 .productCard {
   margin: 10px;
@@ -15,7 +15,6 @@
   background-color: white;
   border: 1px solid white;
   transition: all 0.3s !important;
-
 }
 .productCard:hover {
   cursor: pointer;
@@ -25,19 +24,19 @@
 .productCard_headInfo {
   display: flex;
   justify-content: space-between;
-  padding:0 10px;
+  padding: 0 10px;
 }
 .productCard_list {
   width: 70%;
   margin-left: 10px;
   li.productCard_checkboxItem {
-      align-items: center;
+    align-items: center;
   }
-  li{
+  li {
     display: flex;
   }
-  span{
-      margin-right: 5px;
+  span {
+    margin-right: 5px;
   }
 }
 .productCard_description {
@@ -50,11 +49,16 @@
   padding: 10px;
 }
 
-
 .productCard_title {
   height: 50px;
   overflow: hidden;
   text-align: center;
   line-clamp: 2;
   font-weight: 700;
+}
+
+.productCard_propName {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100px;
 }

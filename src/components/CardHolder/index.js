@@ -3,7 +3,7 @@ import s from "./CardHolder.module.scss";
 import { getProductListAction } from "../../actions/getProductListAction";
 import { initActivePageAction } from "../../actions/paginationAction";
 import { getCardProductsAction } from "../../actions/cardProductAction";
-import { initNumbersOfPageAction  } from "../../actions/numbersOfPageAction";
+import { initNumbersOfPageAction } from "../../actions/numbersOfPageAction";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import numbers from "../../constants/numbers.constants";
@@ -13,28 +13,34 @@ const CardHolder = () => {
     (state) => state.productsList.products
   );
 
-  const sortedProducts = useSelector(
-    (state) => state.productSort.products
-  );
+  const sortedProducts = useSelector(({ productSort }) => productSort.products);
+
   const searchProducts = useSelector(
-    (state) => state.productSearch.products
+    ({ productSearch }) => productSearch.products
   );
-  const productsForSorting = searchProducts.length ? searchProducts : sortedProducts.length ? sortedProducts :  allFetchedProducts
-
-
-
-  const activePage = useSelector((state) => state.activePage.activePage);
+  const productsForSorting = searchProducts.length
+    ? searchProducts
+    : sortedProducts.length
+    ? sortedProducts
+    : allFetchedProducts;
+  const activePage = useSelector(({ activePage }) => activePage.activePage);
   const structureProducts = [];
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getProductListAction());
     dispatch(getCardProductsAction());
-    dispatch(initNumbersOfPageAction ());
+    dispatch(initNumbersOfPageAction());
     dispatch(initActivePageAction());
   }, []);
-  for (let i = 0; i < productsForSorting.length; i += numbers.numberOfPageProducts) {
+
+  for (
+    let i = 0;
+    i < productsForSorting.length;
+    i += numbers.numberOfPageProducts
+  ) {
     structureProducts.push(
-        productsForSorting.slice(i, i + numbers.numberOfPageProducts)
+      productsForSorting.slice(i, i + numbers.numberOfPageProducts)
     );
   }
 
@@ -54,7 +60,7 @@ const CardHolder = () => {
           }) => {
             return (
               <Card
-              key={id}
+                key={id}
                 id={id}
                 name={name}
                 tagline={tagline}
