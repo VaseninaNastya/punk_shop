@@ -8,66 +8,97 @@ import {
   checkEmailFieldRegistrationPopupAction,
   checkDateFieldRegistrationPopupAction,
   checkPasswordFieldRegistrationPopupAction,
-  checkAllFieldRegistrationPopupAction
+  checkAllFieldRegistrationPopupAction,
 } from "../../actions/checkRegistrationFieldAction";
-import registrationItems from "../../constants/registrationItems.constants";
+import { inputsData, inputsIds } from "../../constants/registration.constants";
 import RegistrationPopupListItem from "../RegistrationPopupListItem";
 
 const RegistrationPopup = () => {
-  const checkRegistrationField = useSelector((state) => state.checkRegistrationField);
-  const registrationFieldRight = useSelector((state) => state.checkRegistrationField.allFieldsRight);
-  const popupState = useSelector((state) => state.registration.popupActive);
+  const checkRegistrationField = useSelector(
+    ({ checkRegistrationField }) => checkRegistrationField
+  );
+
+  const registrationFieldRight = useSelector(
+    ({ checkRegistrationField }) => checkRegistrationField.allFieldsRight
+  );
+
+  const popupState = useSelector(
+    ({ registration }) => registration.popupActive
+  );
+
   useEffect(() => {
-    if(registrationFieldRight) {
+    if (registrationFieldRight) {
       dispatch(closeRegistrationPopupAction());
     }
-  })
+  }, []);
+
   const dispatch = useDispatch();
+
   const handleClosePopup = function () {
     dispatch(closeRegistrationPopupAction());
   };
+
   const handleSubmit = function (e) {
     e.preventDefault();
     if (e.target.getAttribute("id") === "submit") {
       const inputs = e.currentTarget.querySelectorAll("input");
       const payload = [];
-      inputs.forEach((item) => {
-        payload.push({ name: item.getAttribute("id"), value: item.value });
+
+      inputs.forEach((input) => {
+        payload.push({ name: input.getAttribute("id"), value: input.value });
       });
-      payload.map((item) => {
-        if (item.name === "name")
-          dispatch(checkNameFieldRegistrationPopupAction(item));
-        if (item.name === "dateOfBirth")
-          dispatch(checkDateFieldRegistrationPopupAction(item));
-        if (item.name === "email")
-          dispatch(checkEmailFieldRegistrationPopupAction(item));
-        if (item.name === "password")
-          dispatch(checkPasswordFieldRegistrationPopupAction(item));
-        return item
+      const { nameId, dateOfBirthId, emailId, passwordId } = inputsIds;
+      payload.map((input) => {
+        const { name } = input;
+        switch (name) {
+          case nameId:
+            dispatch(checkNameFieldRegistrationPopupAction(input));
+            break;
+          case dateOfBirthId:
+            dispatch(checkDateFieldRegistrationPopupAction(input));
+            break;
+          case emailId:
+            dispatch(checkEmailFieldRegistrationPopupAction(input));
+            break;
+          case passwordId:
+            dispatch(checkPasswordFieldRegistrationPopupAction(input));
+            break;
+          default:
+            return input;
+        }
       });
       dispatch(checkAllFieldRegistrationPopupAction(payload));
     }
   };
-  const fragment = [];
-  registrationItems.map((item) => {
-    if (item.inputId) {
+
+  const registrationItemsElements = inputsData.map((registrationItem) => {
+    if (registrationItem.inputId) {
       const popupListItemInfo = {
-        ...checkRegistrationField[item.inputId],
-        ...item,
+        ...checkRegistrationField[registrationItem.inputId],
+        ...registrationItem,
       };
-      fragment.push(
+
+      const {
+        labelInnerText,
+        inputId,
+        errorMessage,
+        emptyErrorMessage,
+        wrongValue,
+        emptyInput,
+      } = popupListItemInfo;
+
+      return (
         <RegistrationPopupListItem
-          labelInnerText={popupListItemInfo.labelInnerText}
-          inputId={popupListItemInfo.inputId}
-          errorMessage={popupListItemInfo.errorMessage}
-          emptyErrorMessage={popupListItemInfo.emptyErrorMessage}
-          wrongValue={popupListItemInfo.wrongValue}
-          emptyInput={popupListItemInfo.emptyInput}
-          key={popupListItemInfo.inputId}
+          labelInnerText={labelInnerText}
+          inputId={inputId}
+          errorMessage={errorMessage}
+          emptyErrorMessage={emptyErrorMessage}
+          wrongValue={wrongValue}
+          emptyInput={emptyInput}
+          key={inputId}
         />
       );
     }
-    return item
   });
 
   const popupWrapperClass = cl(s.popup_wrapper, {
@@ -79,14 +110,14 @@ const RegistrationPopup = () => {
       <div className={s.popup_overlay} onClick={handleClosePopup}></div>
       <form className={s.popup_container} onClick={handleSubmit}>
         <ul>
-          <li key = '1'>
+          <li key="1">
             <div
               className={s.popup_closeButton}
               onClick={handleClosePopup}
             ></div>
           </li>
-          {fragment}
-          <li key = '2'>
+          {registrationItemsElements}
+          <li key="2">
             <button id="submit" className={s.popup_submitButton}>
               Submit
             </button>

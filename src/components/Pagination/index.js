@@ -6,12 +6,14 @@ import { useSelector } from "react-redux";
 
 const Pagination = () => {
   const numbersOfPage = useSelector(
-    (state) => state.numbersOfPage.numbersOfPage
+    ({ numbersOfPage }) => numbersOfPage.numbersOfPage
   );
   const fragment = [];
+
   for (let index = 1; index <= numbersOfPage; index++) {
     fragment.push(<PaginationItem key={index} id={index} />);
   }
+
   return (
     <div className={s.container}>
       <div className={s.pagination_container}>
